@@ -1,0 +1,181 @@
+<!DOCTYPE html> <!-- Sempre na primeira linhas
+                Serve para dizer para o navegador qual versão do HTML estamos usando
+                Ao colocar somente html diz que estamos usando a ultima versão disponivel do HTML (5)
+                Ao colocar uma numeração diz que estamos usando a versao do numero (EX: html3) -->
+
+<!-- COMENTARIO EM HTML -->
+
+<!-- Existem dois tipos de tag, a de conteúdo e a de informação
+
+    CONTEÚDO: possuem conteúdo entre tags. EX: <h1>TAG DE CONTEÚDO</h1>
+
+    INFORMAÇÃO: passam informação para o navegador. EX: <meta charset='UTF-8'>
+
+-->
+
+<!-- O HTML possui duas parte: HEAD e BODY
+
+    HEAD: envia informações para o navegador
+    
+    BODY: exibi o conteúdo da pagina
+
+    A estrutura basica de um html é da seguinte maneira (simplificada):
+
+    <html>
+        <head>
+            INFORMAÇÕES PARA O NAVEGADOR
+        </head>
+        <body>
+            CONTEÚDO A SER EXIBIDO
+        </body>
+    </html>
+
+-->
+
+<!-- Existem três formas de criar um CSS: 
+
+    (CSS permite customizar TAGs do html)
+
+    INLINE: seria criar um pequeno css nas TAGs utilizando a propriedade style:
+        EX: <strong style="font-size: 25px; margin-left: 150px;">NEGRITO</strong>
+        OBS: Só é aplicado no elemento em que foi criado
+
+    TAG STYLE: É possível criar um css utilizando a tag 'style' no head.
+        Ao criar a tag style o css será aplicado na pagina inteira
+        OBS: é preciso indicar qual tag aplicar o estilo
+        EX tag P (todas as TAGs p serão afetadas):
+
+            <head>
+                <style>
+                    p {
+                        font-size: 25px; 
+                        margin-left: 150px
+                    }
+                </style> 
+            </head>
+
+    ARQUIVO EXTERNO: é possível criar um arquivo externo com o css. 
+            Para aplicar é preciso criar um arquivo externo como '.css'
+            e linkar o arquivo com pagina html, dessa forma:
+
+            <link rel='stylesheet' href='nome_arquivo.css.'>
+
+-->
+
+<!-- COMPORTAMENTO INLINE E BLOCK
+
+    BLOCK: elementos que possuem comportamento BLOCK ocupam toda a largura da tela, mesmo
+        que o conteudo ocupe só uma pequena parte.
+        EX: tags H1, P, OL, UL, ...
+
+    INLINE: são elementos que permitem que outros elementos fiquem na mesma largura (lado a lado)
+        EX: tag IMG
+
+    ELEMETOS INLINE E BLOCK: são elementos que permitem alterar suas laguras internas e externas,
+        assim permitindo manipular o BLOCK 
+
+-->
+
+<html lang='pt-br'> <!-- Tag basica da estruta HTML
+            Sempre que fizer uma pagina html iniciar com essa tag, pois ela diz que tudo estiver dentro dela é HTML
+            Os navegadores de hoje normalmente complementam com essa tag caso ela não seja declarada, mas 
+            não é uma boa prática não coloca-la -->
+
+            <!-- lang nos permite dizer para o navegador qual linguagem estamos usando na página
+                Ao utiliza-la permite o navegador dar a opção de traduzir a página -->
+
+    <head>  <!-- Toda informação a ser passada para o navegador fica aqui -->
+
+        <meta charset='UTF-8'> <!-- Tag meta passa informações para o navegador
+                                    chatset dicionario de caracteres
+                                    UTF-8 o tipo de dicionario que estamos passando para o charset -->
+
+        <title>TITULO DA PAGINA</title> <!-- Tag title permite alterar o titulo da pagina
+                                        Este titulo normalmente fica no topo do navegador ou da aba -->
+                 
+        <!-- TAG style (css).   -->
+        <style>  
+            p {
+                font-size: 25px; 
+                margin-left: 150px
+            }
+        </style>
+
+        <link rel='stylesheet' href='style.css'> <!-- TAG link conctar o html ao um arquivo externo
+                                                        rel indica o tipo de relacionamento com o arquivo
+                                                        href indica onde carregar o arquivo.   -->
+
+    </head>
+    
+
+    <body> <!-- Todo conteúdo a ser exibido na página fica aqui -->
+
+        <!-- no HTML5 existe a TAG header (cabeçalho). Ela foi criada, pois normalmente muitos
+                sites possuem o cabeçalho. Ela é o primeiro elemento a ser renderizado -->
+        <header>
+            TAGs HTML
+        </header>
+
+
+        
+
+        <br/> <!-- QUEBRA DE LINHA -->
+
+        <h1>TITULO</h1>
+        <h2>TITULO</h2>
+        <h3>TITULO</h3>
+        <h4>TITULO</h4>
+        <h5>TITULO</h5>
+        <h6>TITULO</h6>
+
+        <p>PARAGRAFO</p>
+
+        <p id='missao'>PARAGRAFO</p>       <!-- id é uma referencia de um item do css --> 
+
+        <br/>
+
+        <strong>NEGRITO</strong>
+
+        <br/><br/>
+
+        <strong style="font-size: 25px; margin-left: 150px;">NEGRITO</strong> <!-- Propriedade style(css): permite customizar tags -->
+
+        <br/><br/>
+
+        <em>ITALICO</em>
+
+        <img src='banner.jpg' />    <!-- tag img serve para carregar imagens
+                                        src significa source --> 
+
+
+        <!-- lista nao ordenada --> 
+        <ul>
+            <li>Atendimento aos Clientes</li>
+            <li>Espaço Diferenciados</li>
+            <li>Localização</li>
+            <li>Profissionais Qualificados</li>
+        </ul>
+
+        <!-- lista ordenada --> 
+        <ol>
+            <li>Atendimento aos Clientes</li>
+            <li>Espaço Diferenciados</li>
+            <li>Localização</li>
+            <li>Profissionais Qualificados</li>
+        </ol>
+
+        <!-- A tag DIV serve para dividir elementos de uma pagina
+            Por padrão ela não interfere no visual dos elementos
+            Para alterar é preciso usar o css --> 
+        <div class="principal">                   
+            <p>DIVISÃO 1</p>
+        </div>
+
+        <div>                   
+            <p>DIVISÃO 2</p>
+        </div>
+
+
+    </body>
+
+</html>
