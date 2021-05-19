@@ -12,7 +12,11 @@
         <!-- TAG HEADER - TAG craida no HTML5 para, serve para indicar o cabeçalho do site -->
         <header>
             <div class='caixa'>
-                <h1><img src='logo.png' /></h1>
+
+                <!-- ACESSIBILIDADE - A TAG IMG POSSUI UMA PROPRIEDADE CHAMADA ALT QUE
+                    PERMITE DESCREVER A IMAGEM
+                -->
+                <h1><img src='logo.png' alt="Logo da Barbearia Alura" /></h1>
                 <!-- TAG NAV - TAG craida no HTML5 para, serve para indicar a parte detinada a
                     navegação. -->
                 <nav>
@@ -27,46 +31,57 @@
 
         <main>
 
-           
+            <!-- NO HTML5 EXISTEM VÁIOS TIPOS DE INPUTS. O IDEAL SERIA USÁ-LOS PARA 
+                FACILITAR A VIDA DO USUÁRIO
+
+                O SITE http://mobileinputtypes.com/ POSSUI EXEMPLOS DE INPUTS E ACESSIBILIDADE
+                NO MOBILE
+            -->
+
             <!-- TAG FORM - SERVE PARA CAPTURAR ENTRADAS DO USUARIO E ENVIAR PARA ALGUM LUGAR 
                 (SERVIDOR, OUTRA PAGINA, ...) -->
             <form>
                 <!-- LABEL E INPUT NORMALMENTE SÃO DECLARADAS EM PAR NORMALMENTE. O ID AJUDA A IDENTIFICAR O PAR -->
                 <label for='nomesobrenome'>Nome e Sobrenome</label> <!-- LABEL - SERVE PARA NOMEAR O INPUT -->
                 <!-- INPUT - ENTRADA DE DADOS. TODO INPUT POSSUI UM TIPO. -->
-                <input type='text' id='nomesobrenome' class="input-padrao" />
+                <input type='text' id='nomesobrenome' class="input-padrao" required />
 
                 <label for='email'>Email</label>
-                <input type='text' id='email' class="input-padrao" />
+                <input type='email' id='email' class="input-padrao" required placeholder="seuemail@dominio.com" />
 
                 <label for='telefone'>Telefone</label>
-                <input type='text' id='telefone' class="input-padrao" />
+                <input type='tel' id='telefone' class="input-padrao" required placeholder="(XX) XXXXX-XXXX" />
 
                 <label for="mensagem">Mensagem</label>
-                <textarea cols="70" rows="10" id="mensagem" class="input-padrao"></textarea>
+                <textarea cols="70" rows="10" id="mensagem" class="input-padrao" required></textarea>
 
-                <div>
-                    <p class="teste" id="teste">Como prefere o nosso contato?</p>
+
+                <!-- EM VEZ DE USAR DIVs PARA DIVIDIR CAMPOS PODEMOS UTILIZAR A TAG FIELDSET.
+                    ELA SERVE PARA "AGRUPAR" CAMPOS RELACIONADOS. PARA ADICIONAR UM TITULO
+                    BASTA UTILIZAR A TAG LEGEND
+                -->
+                <fieldset>
+                    <legend class="teste" id="teste">Como prefere o nosso contato?</legend>
 
                     <!-- PROPRIEDADE NAME - server para 'agrupar' conjunto de tags -->
                     <label for="radio-email"><input type="radio" name="contato" value="email" id="radio-email" />Email</label>
         
                     <label for="radio-telefone"><input type="radio" name="contato" value="telefone" id="radio-telefone"/>Telefone</label>
                     
-                    <label for="radio-whatsapp"><input type="radio" name="contato" value="whastaspp" id="radio-whatsapp"/>Whatsapp</label>
+                    <label for="radio-whatsapp"><input type="radio" name="contato" value="whastaspp" id="radio-whatsapp" checked/>Whatsapp</label>
                     
-                </div>
+                </fieldset>
 
-                <div>
-                    <p>Qual horário prefere ser atendido?</p>
+                <fieldset>
+                    <legend>Qual horário prefere ser atendido?</legend>
                     <select>
                         <option>Manhã</option>
                         <option>Tarde</option>
                         <option>Noite</option>
                     </select>
-                </div>
+                </fieldset>
 
-                <label><input class="checkbox" type="checkbox" />Gostaria de receber as nossas novidades por email?</label>
+                <label><input class="checkbox" type="checkbox" checked />Gostaria de receber as nossas novidades por email?</label>
 
                 <!-- TIPO SUBMIT - PERMITE ENVIAR OS DADOS -->
                 <input type='submit' value='Enviar formulário' />
@@ -76,7 +91,7 @@
 
          <!-- TAG MAIN - TAG craida no HTML5 para, serve para indicar o conteúdo de roda-pé da página -->
          <footer>
-            <img src="logo-branco.png" />
+            <img src="logo-branco.png" alt="Logo da Barbearia Alura" />
             <p class="copyright">&copy; Copyright Barbearia Alura - 2019 &#10084; &#128126;</p>
 
             <!-- Para colocar símbolos especiais é interessante utilizar o UNICODE. 

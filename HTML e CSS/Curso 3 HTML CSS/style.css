@@ -100,7 +100,7 @@ form {
     margin: 40px 0;
 }
 
-form label, form p {
+form label, form legend {
     display: block;
     font-size: 20px;
     margin: 0 0 10px;
@@ -114,7 +114,7 @@ form label, form p {
 }
 
 .checkbox {
-    margin: 20px 0;
+    margin: 20px 10px 20px 0;
 }
 
 
