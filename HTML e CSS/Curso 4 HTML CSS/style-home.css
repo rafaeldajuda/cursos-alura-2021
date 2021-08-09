@@ -1,0 +1,86 @@
+body {
+    
+}
+
+#banner {
+    width: 100%
+}
+
+.principal {
+    background: #CCCCCC;
+    padding: 30px
+}
+
+.titulo-principal {
+    padding-left: 20px;
+}
+
+.titulo-centralizado {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+#missao {
+    font-size: 20px
+}  
+
+em strong {
+    color: red;
+}
+
+.beneficios {
+    background: #FFFFFF;
+    padding: 20px;
+}
+
+.beneficios ul {
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    margin-right: 15%;
+}
+
+.itens{
+    font-style: italic
+}
+
+.imagembeneficios {
+    width: 50%
+}
+
+/*
+    CORES NO CSS:
+
+    por nome: red, blue, gree, yellow, ... (somente cores basicas)
+
+    por HEXADECIMAL: #FF0000 (red)
+                     #CCCCCC (cinza)
+
+    por rgb: rgb(255, 255, 255) (white)
+             rgb(0, 0, 255) (blue)
+
+*/
+
+/*
+    para criar uma referencia no css é preciso colocar uma # na frente do nome:
+    EX: #missao
+    OBS: cada ID deve ser único, não é nada recomendado usar mais de um ID em um elemento ou
+    usar o mesmo ID em elementos diferentes
+*/
+
+/*
+    para criar uma classe deve colocar um . na frente do nome
+    EX: .itens
+    OBS: pode-se usar uma classe em varios elementos e também utilizar varias classes em um elemento
+*/
+
+/*
+    PROPRIEDADE DISPLAY
+
+    * inline-block -> ocupada somente o tamanho do seu conteudo, mas permite alterar a largura
+    * inline -> ocupada somente o tamanho do seu conteudo
+    * block -> ocupa a linha inteira
+*/
