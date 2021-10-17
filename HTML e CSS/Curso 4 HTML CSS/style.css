@@ -100,7 +100,7 @@ main {
 }
 
 form {
-    margin: 40px 0;
+    margin: 40px 10px;
 }
 
 form label, form legend {
@@ -139,7 +139,7 @@ form label, form legend {
 }
 
 table {
-    margin: 40px 0 20px;
+    margin: 40px 0 20px 10px;
 }
 
 thead {
@@ -163,8 +163,11 @@ td, th {
     font-size: 2em;  
     margin: 0 0 1em;
     clear: left;
+    /*color: rgb(0,0,0, 0.3);*/
+    /*text-shadow: 2px 2px 1px #FF0000;*/
 }
 
+/*
 .titulo-principal:before {
     content: "[ ";
 }
@@ -172,6 +175,7 @@ td, th {
 .titulo-principal:after {
     content: " ]"
 }
+*/
 
 /*
     As pseudos classes "before" e "after" permitar manipular ou acrescentar conteudo antes e depois
@@ -249,6 +253,7 @@ td, th {
 .beneficios {
     padding: 3em 0;
     background: #888888;
+    /*box-shadow: inset 0 0 30px #FF0000;*/
 }
 
 .conteudo-beneficios {
@@ -286,12 +291,140 @@ td, th {
 
 .imagem-beneficios {
     width: 60%;
+    opacity: 1;
+    transition: 400ms;
+    box-shadow: 10px 10px 5px 0 #000000;
+}
+
+/*
+    BOX-SHADOW - SOMBRA
+    box-shadow: X Y Cor;
+    box-shadow: X Y Blur Cor;
+    box-shadow: X Y Blur Spread Cor;
+
+    0 - zero é o mesmo que não usar o parametro
+
+    Mais de uma sobra:
+    box-shadow: 10px 10px 5px 20px #000000, -10px -10px yellow, -20px -20px rgba(255, 0, 0, 0.5)
+
+    PROPRIEDADE inset
+    - cria uma sombra interna 
+    */
+
+.imagem-beneficios:hover{
+    opacity: 0.3;
 }
 
 .video {
     width: 560px;
     margin: 2em auto;
 }
+
+/*
+main > p {
+    background: red;
+}
+*/
+/*
+    SELETOR pai > filho
+    Permite selecionar somente os elementos filhos do elemento pai
+*/
+/*
+img + p {
+    background: blue;
+}
+*/
+/*
+    SELETOR irmao + proximo-irmao
+    Permite selecionar o próximo elemento irmão
+*/
+/*
+img ~ p {
+    background: yellow;
+}
+*/
+/*
+    SELETOR referencia + proximo-elemento
+    Permite selecionar o próximo elemento a partir de uma referencia
+*/
+
+/*
+.principal p:not(#missao) {
+    background: orange;
+}
+*/
+
+/*
+    SELETOR referencia:not(tag-classe-id)
+    Permite ignorar alguma tag a partir da TAG, CLASSE ou ID
+*/
+
+
+
+/*  DISPOSITIVO MOVEL    */
+
+/* dispositivos que possuem largura de até 480px  */
+@media screen and (max-width: 480px) {
+    .caixa, .principal, .conteudo-beneficios, .mapa-conteudo, .video, .produtos {
+        width: auto;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    nav {
+        position: static;
+    }
+
+    .lista-beneficios, .imagem-beneficios {
+        width: 100%;
+    }
+
+    .produtos li {
+        display: block;
+        width: auto;
+    }
+
+    main form > label{
+        text-align: center;
+    }
+
+    main form fieldset {
+       text-align: center;
+    }
+
+    .input-padrao {
+        width: 80%;
+    }
+
+    .enviar {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 16px;
+    }
+
+    table, .input-padrao {
+       margin-left: auto;
+       margin-right: auto;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

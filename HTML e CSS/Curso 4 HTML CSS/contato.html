@@ -3,9 +3,13 @@
     <!-- HEAD - INFORMAÇÕES QUE DEVEM SER PASSADAS PARA O NAVEGADOR -->
     <head>
         <meta charset='UTF-8'/>
+        <meta name="viewport" content="width=device-width">
         <title>Contato - Barbearia Alura</title>
         <link rel='stylesheet' href='reset.css' />
         <link rel="stylesheet" href="style.css" />
+
+        <!-- GOOGLE FONTS -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
     </head>
     <!-- BODY - INFORMAÇÕES QUE DEVEM SER EXIBIDAS NA PÁGINA -->
     <body>
@@ -41,6 +45,7 @@
             <!-- TAG FORM - SERVE PARA CAPTURAR ENTRADAS DO USUARIO E ENVIAR PARA ALGUM LUGAR 
                 (SERVIDOR, OUTRA PAGINA, ...) -->
             <form>
+               
                 <!-- LABEL E INPUT NORMALMENTE SÃO DECLARADAS EM PAR NORMALMENTE. O ID AJUDA A IDENTIFICAR O PAR -->
                 <label for='nomesobrenome'>Nome e Sobrenome</label> <!-- LABEL - SERVE PARA NOMEAR O INPUT -->
                 <!-- INPUT - ENTRADA DE DADOS. TODO INPUT POSSUI UM TIPO. -->
@@ -63,6 +68,7 @@
                 <fieldset>
                     <legend class="teste" id="teste">Como prefere o nosso contato?</legend>
 
+                    
                     <!-- PROPRIEDADE NAME - server para 'agrupar' conjunto de tags -->
                     <label for="radio-email"><input type="radio" name="contato" value="email" id="radio-email" />Email</label>
         
@@ -83,8 +89,10 @@
 
                 <label><input class="checkbox" type="checkbox" checked />Gostaria de receber as nossas novidades por email?</label>
 
+                
                 <!-- TIPO SUBMIT - PERMITE ENVIAR OS DADOS -->
                 <input type="submit" value="Enviar formulário" class="enviar"/>
+           
             </form>
 
             <table>
