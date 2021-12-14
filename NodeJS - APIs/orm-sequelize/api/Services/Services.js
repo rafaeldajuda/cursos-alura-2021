@@ -10,11 +10,11 @@ class Services {
     }
 
     async pegaUmRegistro(id){
-        //
+        return database[this.nomeDoModelo].findAll({ where: { id:id } })
     }
 
     async criaResgistro(dados){
-        //
+        return database[this.nomeDoModelo].create(dados);
     }
 
     async atualizaRegistro(dadosAtualizados, id, transacao){
@@ -26,8 +26,13 @@ class Services {
     }
 
     async apagaRegistro(id){
-        //
+        database[this.nomeDoModelo].destroy({ where: {id:id} });
     }
+
+    async restauraRegistro(id){
+        database[this.nomeDoModelo].restore({ where: {id:id} });
+    }
+
 }
 
 module.exports = Services

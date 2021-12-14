@@ -24,6 +24,11 @@ class PessoasServices extends Services {
                 { estudante_id: estudanteId }, { transaction: transacao });
         });
     }
+
+    async pegaTodasAsMatriculas(estudanteId){
+        const pessoa = await database[this.nomeDoModelo].findOne({ where: {id:estudanteId} })
+        return await pessoa.getAulasMatriculadas();
+    }
     
 }
 
