@@ -1,6 +1,6 @@
 const Services = require('./Services');
 const database = require('../models');
-const { sequelize } = require('../models');
+const Sequelize = require('sequelize');
 
 class MatriculasServices extends Services {
     constructor() {
@@ -24,6 +24,35 @@ class MatriculasServices extends Services {
         if (await this.pessoas.pegaUmRegistro(estudanteId)) {
             await this.apagaRegistro(matriculaId);
         }
+    }
+
+    async restauraMatricula(estudanteId, matriculaId) {
+        if (await this.pessoas.pegaUmRegistro(estudanteId)) {
+            await this.restauraRegistro(matriculaId);
+        }
+    }
+
+    async pegaMatriculasPorTurma(turmaId) {
+        return database[this.nomeDoModelo].findAndCountAll({
+            where: {
+                turma_id: Number(turmaId),
+                status: 'confirmado'
+            },
+            limit: 10,
+            offset: 0,                           //PAGINACAO
+            order: [['estudante_id', 'ASC']]
+        })
+    }
+
+    async pegaTurmasLotadas(lotacaoTurma) {
+        return database[this.nomeDoModelo].findAndCountAll({
+            where: {
+                status: 'confirmado'
+            },
+            attributes: ['turma_id'],
+            group: ['turma_id'],
+            having: Sequelize.literal(`count(turma_id) >= ${lotacaoTurma}`)
+        })
     }
 }
 

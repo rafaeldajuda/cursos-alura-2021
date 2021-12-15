@@ -1,11 +1,14 @@
 const Services = require('./Services');
+const database = require('../models');
 
 class TurmasServices extends Services {
     constructor(){
-        super('Pessoas');
+        super('Turmas');
     }
 
-    // métodos específicos do controlador de Turmas
+    async pegaTodasAsTurmasPorData(where){
+        return database[this.nomeDoModelo].findAll({ where: {...where} });
+    }
 }
 
 module.exports = TurmasServices;

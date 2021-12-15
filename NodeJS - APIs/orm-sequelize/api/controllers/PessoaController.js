@@ -2,8 +2,6 @@ const { PessoasServices, MatriculasServices } = require('../Services');
 const pessoasServices = new PessoasServices();
 const matriculaServices = new MatriculasServices();
 
-const database = require('../models');
-
 class PessoaController {
     static async pegaPessoasAtivas(req, res) {
         try {
@@ -126,7 +124,7 @@ class PessoaController {
     static async restauraMatricula(req, res) {
         const { estudanteId, matriculaId } = req.params;
         try {
-            await database.Matriculas.restore({ where: { id: Number(matriculaId), estudante_id: Number(estudanteId) } });
+            await matriculaServices.restauraMatricula(Number(estudanteId), Number(matriculaId));
             return res.status(200).json({ mensagem: `id ${matriculaId} restaurado` });
         } catch (error) {
             console.log(error);
@@ -148,15 +146,7 @@ class PessoaController {
     static async pegaMatriculasPorTurma(req, res) {
         const { turmaId } = req.params;
         try {
-            const todasAsMatriculas = await database.Matriculas.findAndCountAll({
-                where: {
-                    turma_id: Number(turmaId),
-                    status: 'confirmado'
-                },
-                limit: 10,
-                offset: 0,                           //PAGINACAO
-                order: [['estudante_id', 'ASC']]
-            });
+            const todasAsMatriculas = await matriculaServices.pegaMatriculasPorTurma(Number(turmaId))
 
             return res.status(200).json(todasAsMatriculas);
             //return res.status(200).json(todasAsMatriculas.count);
@@ -168,17 +158,11 @@ class PessoaController {
     static async pegaTurmasLotadas(req, res) {
         const lotacaoTurma = 2;
         try {
-            const turmasLotadas = await database.Matriculas.findAndCountAll({
-                where: {
-                    status: 'confirmado'
-                },
-                attributes: ['turma_id'],
-                group: ['turma_id'],
-                having: Sequelize.literal(`count(turma_id) >= ${lotacaoTurma}`)
-            });
+            const turmasLotadas = await matriculaServices.pegaTurmasLotadas(lotacaoTurma)
 
             return res.status(200).json(turmasLotadas.count);
         } catch (error) {
+            console.log(error)
             return res.status(500).json(error);
         }
     }
